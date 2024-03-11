@@ -1,4 +1,4 @@
-# cache_variable
+# Cache Variable
 Variable write to ram and read from ram instead of disk.
 
 Sometimes, users define variables in the environment on the disk, which may cause frequent disk reads. Using this command can enable reading/writing directly from RAM, reducing disk read/write times and increasing efficiency. For example, you can use the cr get and set commands to read and write variables to RAM.
