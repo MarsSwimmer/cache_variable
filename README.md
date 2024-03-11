@@ -78,5 +78,6 @@ help                                               Help about any command.
 
 Sometime conky config may ask a tmp file, update frequently and read frequently, with this command, can store variable to ram instead of disk, it can reducing disk read/write times.
 
+![result](https://github.com/MarsSwimmer/cache_variable/assets/146618222/81bd8b34-ac37-47e7-a6dc-d4f64ac808af)
 
 
