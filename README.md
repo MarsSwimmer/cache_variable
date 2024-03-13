@@ -8,23 +8,18 @@ This project is written in Go.
 
 ### Steps for use
 
-1. Download repo and cd repo:
-```
-git clone github.com/MarsSwimmer/cache_variable.git && cd cache_variable.
-```
+1. Download release file `Cache.Variable-xxx-linux-x64.tar.xz` and extract it.
 
-2. Grant executable permission and move to right dir.  // Also you can compile it use: go build -o cr.  
+2. Grant it executable permission and move it to bin dir.    
 ```
 chmod +x cr
 
-cp cr /usr/local/bin/
+sudo cp cr /usr/local/bin/
 ```
 
 3. Run a cache variable instalce.  // Sometime may need run at startup.
 ```
 cr run    // it will run a instance at default port 6366, you can change it with -p xxxx.
-
-cr run &  // run at background
 ```
 
 
