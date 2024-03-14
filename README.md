@@ -39,12 +39,12 @@ also you can use cr get with other command in shell.
 
 ### Command Usage And Options
 ```
-cr [command] [options]
+cr [command] [flags]
 ```
 
 ### Available Commands
 ```
-cmd   options              args                                 
+cmd   flags                args                                 
 
 run                                                Run a cache_variable server at local.
       -p, --port                                   optional, specific the port, default port is 6366.
