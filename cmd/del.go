@@ -23,7 +23,7 @@ var delCmd = &cobra.Command{
 cr delete key.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if err := http_client.InitCacheVariableClient(flags.Port); err != nil {
-			if flags.DefaultValue == "" {
+			if flags.ShowErrMsg {
 				fmt.Println("error:", err.Error())
 			} else {
 				fmt.Println(flags.DefaultValue)
@@ -33,7 +33,7 @@ cr delete key.`,
 
 		err := client_handlers.CacheVariableDel(context.Background(), args[0])
 		if err != nil {
-			if flags.DefaultValue == "" {
+			if flags.ShowErrMsg {
 				fmt.Println("error:", err.Error())
 			} else {
 				fmt.Println(flags.DefaultValue)
@@ -46,7 +46,8 @@ cr delete key.`,
 func init() {
 	rootCmd.AddCommand(delCmd)
 	delCmd.Flags().Int32VarP(&flags.Port, "port", "p", 6366, "specific the port of target server")
-	delCmd.Flags().StringVarP(&flags.DefaultValue, "defaultValue", "d", "", "specific the defaultValue when internal error, if not specific it will show error msg")
+	delCmd.Flags().BoolVarP(&flags.ShowErrMsg, "showErrMsg", "", false, "show error message when internal error")
+	delCmd.Flags().StringVarP(&flags.DefaultValue, "defaultValue", "d", "", "specific the defaultValue when internal error and not show error message")
 
 	// Here you will define your flags and configuration settings.
 

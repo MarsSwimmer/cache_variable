@@ -23,7 +23,7 @@ var getCmd = &cobra.Command{
 cr get param -p 6366`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if err := http_client.InitCacheVariableClient(flags.Port); err != nil {
-			if flags.DefaultValue == "" {
+			if flags.ShowErrMsg {
 				fmt.Println("error:", err.Error())
 			} else {
 				fmt.Println(flags.DefaultValue)
@@ -33,7 +33,7 @@ cr get param -p 6366`,
 
 		result, err := client_handlers.CacheVariableGet(context.Background(), args[0])
 		if err != nil {
-			if flags.DefaultValue == "" {
+			if flags.ShowErrMsg {
 				fmt.Println("error:", err.Error())
 			} else {
 				fmt.Println(flags.DefaultValue)
@@ -47,7 +47,8 @@ cr get param -p 6366`,
 func init() {
 	rootCmd.AddCommand(getCmd)
 	getCmd.Flags().Int32VarP(&flags.Port, "port", "p", 6366, "specific the port of target server")
-	getCmd.Flags().StringVarP(&flags.DefaultValue, "defaultValue", "d", "", "specific the defaultValue when internal error, if not specific it will show error msg")
+	getCmd.Flags().BoolVarP(&flags.ShowErrMsg, "showErrMsg", "", false, "show error message when internal error")
+	getCmd.Flags().StringVarP(&flags.DefaultValue, "defaultValue", "d", "", "specific the defaultValue when internal error and not show error message")
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
